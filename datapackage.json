@@ -1,16 +1,14 @@
 {
     "name": "ddf--gapminder--who_gho",
-    "title": "Selected indicators from GHO",
-    "description": "Selected Indicators from GHO",
-    "author": "Gapminder",
-    "license": "CC-BY-4.0",
+    "title": "ddf--gapminder--who_gho",
+    "description": "",
+    "author": "",
+    "license": "",
     "language": {
-        "name": "English",
         "id": "en"
     },
-    "created": "2025-08-28T06:19:41.175Z",
+    "created": "2025-10-20T08:34:21.710Z",
     "translations": [],
-    "version": "0.0.1",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -29,6 +27,1010 @@
                 ],
                 "primaryKey": [
                     "concept"
+                ]
+            }
+        },
+        {
+            "name": "ddf--entities--geo",
+            "path": "ddf--entities--geo.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "name"
+                    }
+                ],
+                "primaryKey": [
+                    "geo"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--birth_asphyxia_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--birth_asphyxia_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "birth_asphyxia_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--birth_asphyxia_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--birth_asphyxia_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "birth_asphyxia_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--body_mass_index_bmi_men_kgperm2--by--geo--time",
+            "path": "ddf--datapoints--body_mass_index_bmi_men_kgperm2--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "body_mass_index_bmi_men_kgperm2"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--body_mass_index_bmi_women_kgperm2--by--geo--time",
+            "path": "ddf--datapoints--body_mass_index_bmi_women_kgperm2--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "body_mass_index_bmi_women_kgperm2"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--cholesterol_fat_in_blood_men_mmolperl--by--geo--time",
+            "path": "ddf--datapoints--cholesterol_fat_in_blood_men_mmolperl--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "cholesterol_fat_in_blood_men_mmolperl"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--cholesterol_fat_in_blood_women_mmolperl--by--geo--time",
+            "path": "ddf--datapoints--cholesterol_fat_in_blood_women_mmolperl--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "cholesterol_fat_in_blood_women_mmolperl"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--congenital_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--congenital_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "congenital_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--congenital_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--congenital_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "congenital_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--diarrhoeal_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--diarrhoeal_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "diarrhoeal_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--diarrhoeal_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--diarrhoeal_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "diarrhoeal_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--diarrhoeal_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--diarrhoeal_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "diarrhoeal_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--diarrhoeal_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--diarrhoeal_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "diarrhoeal_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_che_pc_us_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_che_pc_us_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_che_pc_us_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_chegdp_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_chegdp_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_chegdp_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_gghe_d_pc_us_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_gghe_d_pc_us_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_gghe_d_pc_us_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_gghe_dche_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_gghe_dche_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_gghe_dche_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_gghe_dgge_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_gghe_dgge_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_gghe_dgge_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_oopsche_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_oopsche_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_oopsche_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ghed_pvt_dche_sha2011--by--geo--time",
+            "path": "ddf--datapoints--ghed_pvt_dche_sha2011--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ghed_pvt_dche_sha2011"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--hiv_0000000026--by--geo--time",
+            "path": "ddf--datapoints--hiv_0000000026--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "hiv_0000000026"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--hiv_artcoverage--by--geo--time",
+            "path": "ddf--datapoints--hiv_artcoverage--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "hiv_artcoverage"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--hiv_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--hiv_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "hiv_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--hiv_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--hiv_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "hiv_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--injury_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--injury_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "injury_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--injury_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--injury_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "injury_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--malaria_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--malaria_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "malaria_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--malaria_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--malaria_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "malaria_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--mdg_0000000029--by--geo--time",
+            "path": "ddf--datapoints--mdg_0000000029--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "mdg_0000000029"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--measles_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--measles_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "measles_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--measles_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--measles_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "measles_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--meningitis_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--meningitis_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "meningitis_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--meningitis_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--meningitis_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "meningitis_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ncd_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--ncd_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ncd_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--ncd_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--ncd_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "ncd_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--other_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--other_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "other_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--other_infections_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--other_infections_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "other_infections_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--other_infections_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--other_infections_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "other_infections_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--pneumonia_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--pneumonia_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "pneumonia_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--pneumonia_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--pneumonia_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "pneumonia_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--pneumonia_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--pneumonia_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "pneumonia_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--pneumonia_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--pneumonia_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "pneumonia_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--prematurity_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--prematurity_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "prematurity_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--prematurity_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--prematurity_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "prematurity_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sepsis_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--sepsis_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sepsis_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sepsis_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--sepsis_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sepsis_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--tetanus_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--tetanus_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "tetanus_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--tetanus_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--tetanus_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "tetanus_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
                 ]
             }
         }
@@ -54,8 +1056,489 @@
                 ]
             }
         ],
-        "entities": [],
-        "datapoints": [],
+        "entities": [
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo"
+                ]
+            }
+        ],
+        "datapoints": [
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "birth_asphyxia_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--birth_asphyxia_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "birth_asphyxia_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--birth_asphyxia_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "body_mass_index_bmi_men_kgperm2",
+                "resources": [
+                    "ddf--datapoints--body_mass_index_bmi_men_kgperm2--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "body_mass_index_bmi_women_kgperm2",
+                "resources": [
+                    "ddf--datapoints--body_mass_index_bmi_women_kgperm2--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "cholesterol_fat_in_blood_men_mmolperl",
+                "resources": [
+                    "ddf--datapoints--cholesterol_fat_in_blood_men_mmolperl--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "cholesterol_fat_in_blood_women_mmolperl",
+                "resources": [
+                    "ddf--datapoints--cholesterol_fat_in_blood_women_mmolperl--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "congenital_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--congenital_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "congenital_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--congenital_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "diarrhoeal_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--diarrhoeal_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "diarrhoeal_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--diarrhoeal_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "diarrhoeal_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--diarrhoeal_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "diarrhoeal_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--diarrhoeal_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_che_pc_us_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_che_pc_us_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_chegdp_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_chegdp_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_gghe_d_pc_us_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_gghe_d_pc_us_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_gghe_dche_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_gghe_dche_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_gghe_dgge_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_gghe_dgge_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_oopsche_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_oopsche_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ghed_pvt_dche_sha2011",
+                "resources": [
+                    "ddf--datapoints--ghed_pvt_dche_sha2011--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "hiv_0000000026",
+                "resources": [
+                    "ddf--datapoints--hiv_0000000026--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "hiv_artcoverage",
+                "resources": [
+                    "ddf--datapoints--hiv_artcoverage--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "hiv_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--hiv_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "hiv_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--hiv_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "injury_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--injury_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "injury_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--injury_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "malaria_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--malaria_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "malaria_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--malaria_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "mdg_0000000029",
+                "resources": [
+                    "ddf--datapoints--mdg_0000000029--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "measles_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--measles_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "measles_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--measles_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "meningitis_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--meningitis_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "meningitis_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--meningitis_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ncd_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--ncd_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "ncd_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--ncd_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "other_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--other_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "other_infections_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--other_infections_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "other_infections_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--other_infections_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "pneumonia_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--pneumonia_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "pneumonia_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--pneumonia_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "pneumonia_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--pneumonia_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "pneumonia_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--pneumonia_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "prematurity_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--prematurity_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "prematurity_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--prematurity_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sepsis_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--sepsis_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sepsis_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--sepsis_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "tetanus_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--tetanus_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "tetanus_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--tetanus_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            }
+        ],
         "synonyms": []
     }
 }
