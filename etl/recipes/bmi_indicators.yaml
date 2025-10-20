@@ -1,0 +1,51 @@
+# Recipe to create BMI indicators by gender from WHO GHO data
+info:
+    id: bmi_indicators
+    base:
+        - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+    - id: bmi-datapoints
+      dataset: *d1
+      key: "country, year, agegroup, sex"
+      value:
+          - ncd_bmi_meanc
+      filter:
+          agegroup: agegroup_years18_plus
+
+cooking:
+    datapoints:
+        - procedure: translate_header
+          ingredients:
+              - bmi-datapoints
+          options:
+              dictionary:
+                  country: geo
+                  year: time
+          result: bmi-datapoints-headers-translated
+        - procedure: flatten
+          ingredients:
+              - bmi-datapoints-headers-translated
+          options:
+              flatten_dimensions:
+                  - sex
+                  - agegroup
+              dictionary:
+                  ncd_bmi_meanc: "body_mass_index_bmi_{sex}_kgperm2"
+          result: bmi-datapoints-flattened
+        - procedure: filter
+          ingredients:
+              - bmi-datapoints-flattened
+          options:
+              item:
+                  - body_mass_index_bmi_sex_mle_kgperm2
+                  - body_mass_index_bmi_sex_fmle_kgperm2
+          result: bmi-datapoints-filtered
+        - procedure: translate_header
+          ingredients:
+              - bmi-datapoints-filtered
+          options:
+              dictionary:
+                  body_mass_index_bmi_sex_mle_kgperm2: body_mass_index_bmi_men_kgperm2
+                  body_mass_index_bmi_sex_fmle_kgperm2: body_mass_index_bmi_women_kgperm2
+          result: bmi-datapoints-final

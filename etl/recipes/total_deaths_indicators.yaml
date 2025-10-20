@@ -1,0 +1,86 @@
+# Recipe to create total deaths indicators by age group and cause from WHO GHO data
+info:
+    id: total_deaths_indicators
+    base:
+        - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+    - id: mort-datapoints
+      dataset: *d1
+      key: "country, year, agegroup, childcause, sex"
+      value:
+          - mort_100
+      filter:
+          sex: sex_btsx
+
+cooking:
+    datapoints:
+        - procedure: translate_header
+          ingredients:
+              - mort-datapoints
+          options:
+              dictionary:
+                  country: geo
+                  year: time
+          result: mort-datapoints-headers-translated
+        - procedure: flatten
+          ingredients:
+              - mort-datapoints-headers-translated
+          options:
+              flatten_dimensions:
+                  - agegroup
+                  - childcause
+                  - sex
+              dictionary:
+                  mort_100: "{childcause}_{agegroup}_total_deaths"
+          result: mort-datapoints-flattened
+        - procedure: filter
+          ingredients:
+              - mort-datapoints-flattened
+          options:
+              item:
+                  # Newborn (0-27 days) deaths
+                  - childcause_ch11_agegroup_days0_27_total_deaths
+                  - childcause_ch15_agegroup_days0_27_total_deaths
+                  - childcause_ch3_agegroup_days0_27_total_deaths
+                  - childcause_ch9_agegroup_days0_27_total_deaths
+                  - childcause_ch10_agegroup_days0_27_total_deaths
+                  - childcause_ch12_agegroup_days0_27_total_deaths
+                  - childcause_ch5_agegroup_days0_27_total_deaths
+                  - childcause_ch19_agegroup_days0_27_total_deaths
+                  # Children 1-59 months deaths
+                  - childcause_ch3_agegroup_months1_59_total_deaths
+                  - childcause_ch2_agegroup_months1_59_total_deaths
+                  - childcause_ch17_agegroup_months1_59_total_deaths
+                  - childcause_ch8_agegroup_months1_59_total_deaths
+                  - childcause_ch6_agegroup_months1_59_total_deaths
+                  - childcause_ch7_agegroup_months1_59_total_deaths
+                  - childcause_ch16_agegroup_months1_59_total_deaths
+                  - childcause_ch13_agegroup_months1_59_total_deaths
+                  - childcause_ch9_agegroup_months1_59_total_deaths
+          result: mort-datapoints-filtered
+        - procedure: translate_header
+          ingredients:
+              - mort-datapoints-filtered
+          options:
+              dictionary:
+                  # Newborn (0-27 days) deaths
+                  childcause_ch11_agegroup_days0_27_total_deaths: birth_asphyxia_deaths_in_newborn_total_deaths
+                  childcause_ch15_agegroup_days0_27_total_deaths: congenital_deaths_in_newborn_total_deaths
+                  childcause_ch3_agegroup_days0_27_total_deaths: diarrhoeal_deaths_in_newborn_total_deaths
+                  childcause_ch9_agegroup_days0_27_total_deaths: pneumonia_deaths_in_newborn_total_deaths
+                  childcause_ch10_agegroup_days0_27_total_deaths: prematurity_deaths_in_newborn_total_deaths
+                  childcause_ch12_agegroup_days0_27_total_deaths: sepsis_deaths_in_newborn_total_deaths
+                  childcause_ch5_agegroup_days0_27_total_deaths: tetanus_deaths_in_newborn_total_deaths
+                  childcause_ch19_agegroup_days0_27_total_deaths: other_deaths_in_newborn_total_deaths
+                  # Children 1-59 months deaths
+                  childcause_ch3_agegroup_months1_59_total_deaths: diarrhoeal_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch2_agegroup_months1_59_total_deaths: hiv_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch17_agegroup_months1_59_total_deaths: injury_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch8_agegroup_months1_59_total_deaths: malaria_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch6_agegroup_months1_59_total_deaths: measles_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch7_agegroup_months1_59_total_deaths: meningitis_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch16_agegroup_months1_59_total_deaths: ncd_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch13_agegroup_months1_59_total_deaths: other_infections_deaths_in_children_1_59_months_total_deaths
+                  childcause_ch9_agegroup_months1_59_total_deaths: pneumonia_deaths_in_children_1_59_months_total_deaths
+          result: mort-datapoints-final

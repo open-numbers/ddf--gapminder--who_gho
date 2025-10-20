@@ -1,0 +1,48 @@
+# Recipe to create cholesterol indicators by gender from WHO GHO data
+info:
+    id: cholesterol_fat_indicators
+    base:
+        - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+    - id: cholesterol-datapoints
+      dataset: *d1
+      key: "country, year, sex"
+      value:
+          - ncd_chol_meantotalchol_c
+
+cooking:
+    datapoints:
+        - procedure: translate_header
+          ingredients:
+              - cholesterol-datapoints
+          options:
+              dictionary:
+                  country: geo
+                  year: time
+          result: cholesterol-datapoints-headers-translated
+        - procedure: flatten
+          ingredients:
+              - cholesterol-datapoints-headers-translated
+          options:
+              flatten_dimensions:
+                  - sex
+              dictionary:
+                  ncd_chol_meantotalchol_c: "cholesterol_fat_in_blood_{sex}_mmolperl"
+          result: cholesterol-datapoints-flattened
+        - procedure: filter
+          ingredients:
+              - cholesterol-datapoints-flattened
+          options:
+              item:
+                  - cholesterol_fat_in_blood_sex_mle_mmolperl
+                  - cholesterol_fat_in_blood_sex_fmle_mmolperl
+          result: cholesterol-datapoints-filtered
+        - procedure: translate_header
+          ingredients:
+              - cholesterol-datapoints-filtered
+          options:
+              dictionary:
+                  cholesterol_fat_in_blood_sex_mle_mmolperl: cholesterol_fat_in_blood_men_mmolperl
+                  cholesterol_fat_in_blood_sex_fmle_mmolperl: cholesterol_fat_in_blood_women_mmolperl
+          result: cholesterol-datapoints-final

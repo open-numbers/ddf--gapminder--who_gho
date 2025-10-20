@@ -1,0 +1,35 @@
+# For those indicators which only geo transformation is required.
+#
+info:
+    id: geo_convention_only
+    base:
+        - &d1 open-numbers/ddf--open_numbers
+        - &d2 open-numbers/ddf--who--gho
+
+ingredients:
+    - id: who-indicators-misc
+      dataset: *d2
+      key: "country, year"
+      value:
+          - hiv_0000000026
+          - mdg_0000000029
+          - mdg_0000000029
+          - hiv_artcoverage
+          - ghed_che_pc_us_sha2011
+          - ghed_chegdp_sha2011
+          - ghed_gghe_d_pc_us_sha2011
+          - ghed_gghe_dche_sha2011
+          - ghed_gghe_dgge_sha2011
+          - ghed_oopsche_sha2011
+          - ghed_pvt_dche_sha2011
+
+cooking:
+    datapoints:
+        - procedure: translate_header
+          ingredients:
+              - who-indicators-misc
+          options:
+              dictionary:
+                  country: geo
+                  year: time
+          result: who-indicators-misc-headers-translated
