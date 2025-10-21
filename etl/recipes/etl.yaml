@@ -1,98 +1,100 @@
 # Main ETL recipe for ddf--gapminder--who_gho dataset
 info:
-    id: ddf--gapminder--who_gho
-    base:
-        - &d1 open-numbers/ddf--open_numbers
-        - &d2 open-numbers/ddf--who--gho
+  id: ddf--gapminder--who_gho
+  base:
+    - &d1 open-numbers/ddf--open_numbers
+    - &d2 open-numbers/ddf--who--gho
 
 config:
-    recipes_dir: ./
-    dictionary_dir: ./translation_dictionaries
-    ddf_dir: ~/src/gapminder/datasets/
+  recipes_dir: ./
+  dictionary_dir: ./translation_dictionaries
+  ddf_dir: ~/src/gapminder/datasets/
 
 include:
-    - bmi_indicators.yaml
-    - cholesterol_fat_indicators.yaml
-    - total_deaths_indicators.yaml
-    - death_rate_indicators.yaml
-    - geo_convention_only.yaml
+  - bmi_indicators.yaml
+  - cholesterol_fat_indicators.yaml
+  - total_deaths_indicators.yaml
+  - death_rate_indicators.yaml
+  - suicide_indicators.yaml
+  - geo_convention_only.yaml
 
 ingredients:
-    - id: open-numbers-synonyms
-      dataset: *d1
-      key: geo, synonym
-      value: "*"
+  - id: open-numbers-synonyms
+    dataset: *d1
+    key: geo, synonym
+    value: "*"
 
-    - id: open-numbers-geo
-      dataset: *d1
-      key: country
-      value:
-          - name
+  - id: open-numbers-geo
+    dataset: *d1
+    key: country
+    value:
+      - name
 
-    - id: who-country-entities
-      dataset: *d2
-      key: country
-      value: "*"
+  - id: who-country-entities
+    dataset: *d2
+    key: country
+    value: "*"
 
 cooking:
-    datapoints:
-        # Merge all datapoints from included recipes
-        - procedure: merge
-          ingredients:
-              - bmi-datapoints-final
-              - cholesterol-datapoints-final
-              - mort-datapoints-final
-              - mort-rate-datapoints-final
-              - misc-datapoints-final
-          result: all-datapoints-merged
+  datapoints:
+    # Merge all datapoints from included recipes
+    - procedure: merge
+      ingredients:
+        - bmi-datapoints-final
+        - cholesterol-datapoints-final
+        - mort-datapoints-final
+        - mort-rate-datapoints-final
+        - suicide-datapoints-final
+        - misc-datapoints-final
+      result: all-datapoints-merged
 
-        # Translate WHO country entities to open_numbers geo
-        - procedure: translate_column
-          ingredients:
-              - who-country-entities
-          options:
-              column: name
-              target_column: geo
-              dictionary:
-                  base: open-numbers-synonyms
-                  key: synonym
-                  value: geo
-          result: countries-aligned
+    # Translate WHO country entities to open_numbers geo
+    - procedure: translate_column
+      ingredients:
+        - who-country-entities
+      options:
+        column: name
+        target_column: geo
+        dictionary:
+          base: open-numbers-synonyms
+          key: synonym
+          value: geo
+      result: countries-aligned
 
-        # Translate datapoints to use open_numbers geo
-        - procedure: translate_column
-          ingredients:
-              - all-datapoints-merged
-          options:
-              column: geo
-              dictionary:
-                  base: countries-aligned
-                  key: country
-                  value: geo
-          result: datapoints-final
+    # Translate datapoints to use open_numbers geo
+    - procedure: translate_column
+      ingredients:
+        - all-datapoints-merged
+      options:
+        column: geo
+        dictionary:
+          base: countries-aligned
+          key: country
+          value: geo
+      result: datapoints-final
 
-    entities:
-        - procedure: translate_header
-          ingredients:
-              - open-numbers-geo
-          options:
-              dictionary:
-                  country: geo
-          result: geo-entities-final
-        # Serve the translated geo entities
-        - procedure: serve
-          ingredients:
-              - geo-entities-final
+  entities:
+    - procedure: translate_header
+      ingredients:
+        - open-numbers-geo
+      options:
+        dictionary:
+          country: geo
+      result: geo-entities-final
+    # Serve the translated geo entities
+    - procedure: serve
+      ingredients:
+        - geo-entities-final
 
-    concepts:
-        # Extract concepts from all datapoints and entities
-        - procedure: extract_concepts
-          ingredients:
-              - datapoints-final
-              - geo-entities-final
-          options:
-              overwrite:
-                  time: time
-                  geo: entity_domain
-                  name: string
-          result: concepts-final
+  concepts:
+    # Extract concepts from all datapoints and entities
+    - procedure: extract_concepts
+      ingredients:
+        - datapoints-final
+        - geo-entities-final
+      options:
+        overwrite:
+          time: time
+          geo: entity_domain
+          name: string
+      result: concepts-final

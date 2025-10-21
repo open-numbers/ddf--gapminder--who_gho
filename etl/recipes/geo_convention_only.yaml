@@ -1,50 +1,50 @@
 # For those indicators which only geo transformation is required.
 #
 info:
-    id: geo_convention_only
-    base:
-        - &d1 open-numbers/ddf--open_numbers
-        - &d2 open-numbers/ddf--who--gho
+  id: geo_convention_only
+  base:
+    - &d1 open-numbers/ddf--open_numbers
+    - &d2 open-numbers/ddf--who--gho
 
 ingredients:
-    - id: who-indicators-misc
-      dataset: *d2
-      key: "country, year"
-      value:
-          - hiv_0000000026
-          - mdg_0000000029
-          - hiv_artcoverage
-          - ghed_che_pc_us_sha2011
-          - ghed_chegdp_sha2011
-          - ghed_gghe_d_pc_us_sha2011
-          - ghed_gghe_dche_sha2011
-          - ghed_gghe_dgge_sha2011
-          - ghed_oopsche_sha2011
-          - ghed_pvt_dche_sha2011
+  - id: who-indicators-misc
+    dataset: *d2
+    key: "country, year"
+    value:
+      - hiv_0000000026
+      - mdg_0000000029
+      - hiv_artcoverage
+      - ghed_che_pc_us_sha2011
+      - ghed_chegdp_sha2011
+      - ghed_gghe_d_pc_us_sha2011
+      - ghed_gghe_dche_sha2011
+      - ghed_gghe_dgge_sha2011
+      - ghed_oopsche_sha2011
+      - ghed_pvt_dche_sha2011
 
 cooking:
-    datapoints:
-        - procedure: translate_header
-          ingredients:
-              - who-indicators-misc
-          options:
-              dictionary:
-                  country: geo
-                  year: time
-          result: who-indicators-misc-headers-translated
-        - procedure: translate_header
-          ingredients:
-              - who-indicators-misc-headers-translated
-          options:
-              dictionary:
-                hiv_0000000026: newly_hiv_infected_number_all_ages
-                mdg_0000000029: newly_hiv_infected_percent_age_15_49
-                hiv_artcoverage: art_coverage_percent_cd4_l_350
-                ghed_che_pc_us_sha2011: total_health_spending_per_person_us 
-                ghed_chegdp_sha2011: total_health_spending_percent_of_gdp
-                ghed_gghe_d_pc_us_sha2011: government_health_spending_per_person_us
-                ghed_gghe_dche_sha2011: government_share_of_total_health_spending_percent
-                ghed_gghe_dgge_sha2011: government_health_spending_of_total_gov_spending_percent
-                ghed_oopsche_sha2011: out_of_pocket_share_of_total_health_spending_percent
-                ghed_pvt_dche_sha2011: private_share_of_total_health_spending_percent
-          result: misc-datapoints-final
+  datapoints:
+    - procedure: translate_header
+      ingredients:
+        - who-indicators-misc
+      options:
+        dictionary:
+          country: geo
+          year: time
+      result: who-indicators-misc-headers-translated
+    - procedure: translate_header
+      ingredients:
+        - who-indicators-misc-headers-translated
+      options:
+        dictionary:
+          hiv_0000000026: newly_hiv_infected_number_all_ages
+          mdg_0000000029: newly_hiv_infected_percent_age_15_49
+          hiv_artcoverage: art_coverage_percent_cd4_l_350
+          ghed_che_pc_us_sha2011: total_health_spending_per_person_us
+          ghed_chegdp_sha2011: total_health_spending_percent_of_gdp
+          ghed_gghe_d_pc_us_sha2011: government_health_spending_per_person_us
+          ghed_gghe_dche_sha2011: government_share_of_total_health_spending_percent
+          ghed_gghe_dgge_sha2011: government_health_spending_of_total_gov_spending_percent
+          ghed_oopsche_sha2011: out_of_pocket_share_of_total_health_spending_percent
+          ghed_pvt_dche_sha2011: private_share_of_total_health_spending_percent
+      result: misc-datapoints-final

@@ -1,81 +1,81 @@
 # Recipe to create death rate indicators by age group and cause from WHO GHO data
 info:
-    id: death_rate_indicators
-    base:
-        - &d1 open-numbers/ddf--who--gho
+  id: death_rate_indicators
+  base:
+    - &d1 open-numbers/ddf--who--gho
 
 ingredients:
-    - id: mort-rate-datapoints
-      dataset: *d1
-      key: "country, year, agegroup, childcause"
-      value:
-          - mort_200
+  - id: mort-rate-datapoints
+    dataset: *d1
+    key: "country, year, agegroup, childcause"
+    value:
+      - mort_200
 
 cooking:
-    datapoints:
-        - procedure: translate_header
-          ingredients:
-              - mort-rate-datapoints
-          options:
-              dictionary:
-                  country: geo
-                  year: time
-          result: mort-rate-datapoints-headers-translated
-        - procedure: flatten
-          ingredients:
-              - mort-rate-datapoints-headers-translated
-          options:
-              flatten_dimensions:
-                  - agegroup
-                  - childcause
-              dictionary:
-                  mort_200: "{childcause}_{agegroup}_per_1000_births"
-          result: mort-rate-datapoints-flattened
-        - procedure: filter
-          ingredients:
-              - mort-rate-datapoints-flattened
-          options:
-              item:
-                  # Newborn (0-27 days) deaths
-                  - childcause_ch11_agegroup_days0_27_per_1000_births
-                  - childcause_ch15_agegroup_days0_27_per_1000_births
-                  - childcause_ch3_agegroup_days0_27_per_1000_births
-                  - childcause_ch9_agegroup_days0_27_per_1000_births
-                  - childcause_ch10_agegroup_days0_27_per_1000_births
-                  - childcause_ch12_agegroup_days0_27_per_1000_births
-                  - childcause_ch5_agegroup_days0_27_per_1000_births
-                  # Children 1-59 months deaths
-                  - childcause_ch3_agegroup_months1_59_per_1000_births
-                  - childcause_ch2_agegroup_months1_59_per_1000_births
-                  - childcause_ch17_agegroup_months1_59_per_1000_births
-                  - childcause_ch8_agegroup_months1_59_per_1000_births
-                  - childcause_ch6_agegroup_months1_59_per_1000_births
-                  - childcause_ch7_agegroup_months1_59_per_1000_births
-                  - childcause_ch16_agegroup_months1_59_per_1000_births
-                  - childcause_ch13_agegroup_months1_59_per_1000_births
-                  - childcause_ch9_agegroup_months1_59_per_1000_births
-          result: mort-rate-datapoints-filtered
-        - procedure: translate_header
-          ingredients:
-              - mort-rate-datapoints-filtered
-          options:
-              dictionary:
-                  # Newborn (0-27 days) deaths
-                  childcause_ch11_agegroup_days0_27_per_1000_births: birth_asphyxia_deaths_in_newborn_per_1000_births
-                  childcause_ch15_agegroup_days0_27_per_1000_births: congenital_deaths_in_newborn_per_1000_births
-                  childcause_ch3_agegroup_days0_27_per_1000_births: diarrhoeal_deaths_in_newborn_per_1000_births
-                  childcause_ch9_agegroup_days0_27_per_1000_births: pneumonia_deaths_in_newborn_per_1000_births
-                  childcause_ch10_agegroup_days0_27_per_1000_births: prematurity_deaths_in_newborn_per_1000_births
-                  childcause_ch12_agegroup_days0_27_per_1000_births: sepsis_deaths_in_newborn_per_1000_births
-                  childcause_ch5_agegroup_days0_27_per_1000_births: tetanus_deaths_in_newborn_per_1000_births
-                  # Children 1-59 months deaths
-                  childcause_ch3_agegroup_months1_59_per_1000_births: diarrhoeal_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch2_agegroup_months1_59_per_1000_births: hiv_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch17_agegroup_months1_59_per_1000_births: injury_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch8_agegroup_months1_59_per_1000_births: malaria_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch6_agegroup_months1_59_per_1000_births: measles_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch7_agegroup_months1_59_per_1000_births: meningitis_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch16_agegroup_months1_59_per_1000_births: ncd_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch13_agegroup_months1_59_per_1000_births: other_infections_deaths_in_children_1_59_months_per_1000_births
-                  childcause_ch9_agegroup_months1_59_per_1000_births: pneumonia_deaths_in_children_1_59_months_per_1000_births
-          result: mort-rate-datapoints-final
+  datapoints:
+    - procedure: translate_header
+      ingredients:
+        - mort-rate-datapoints
+      options:
+        dictionary:
+          country: geo
+          year: time
+      result: mort-rate-datapoints-headers-translated
+    - procedure: flatten
+      ingredients:
+        - mort-rate-datapoints-headers-translated
+      options:
+        flatten_dimensions:
+          - agegroup
+          - childcause
+        dictionary:
+          mort_200: "{childcause}_{agegroup}_per_1000_births"
+      result: mort-rate-datapoints-flattened
+    - procedure: filter
+      ingredients:
+        - mort-rate-datapoints-flattened
+      options:
+        item:
+          # Newborn (0-27 days) deaths
+          - childcause_ch11_agegroup_days0_27_per_1000_births
+          - childcause_ch15_agegroup_days0_27_per_1000_births
+          - childcause_ch3_agegroup_days0_27_per_1000_births
+          - childcause_ch9_agegroup_days0_27_per_1000_births
+          - childcause_ch10_agegroup_days0_27_per_1000_births
+          - childcause_ch12_agegroup_days0_27_per_1000_births
+          - childcause_ch5_agegroup_days0_27_per_1000_births
+          # Children 1-59 months deaths
+          - childcause_ch3_agegroup_months1_59_per_1000_births
+          - childcause_ch2_agegroup_months1_59_per_1000_births
+          - childcause_ch17_agegroup_months1_59_per_1000_births
+          - childcause_ch8_agegroup_months1_59_per_1000_births
+          - childcause_ch6_agegroup_months1_59_per_1000_births
+          - childcause_ch7_agegroup_months1_59_per_1000_births
+          - childcause_ch16_agegroup_months1_59_per_1000_births
+          - childcause_ch13_agegroup_months1_59_per_1000_births
+          - childcause_ch9_agegroup_months1_59_per_1000_births
+      result: mort-rate-datapoints-filtered
+    - procedure: translate_header
+      ingredients:
+        - mort-rate-datapoints-filtered
+      options:
+        dictionary:
+          # Newborn (0-27 days) deaths
+          childcause_ch11_agegroup_days0_27_per_1000_births: birth_asphyxia_deaths_in_newborn_per_1000_births
+          childcause_ch15_agegroup_days0_27_per_1000_births: congenital_deaths_in_newborn_per_1000_births
+          childcause_ch3_agegroup_days0_27_per_1000_births: diarrhoeal_deaths_in_newborn_per_1000_births
+          childcause_ch9_agegroup_days0_27_per_1000_births: pneumonia_deaths_in_newborn_per_1000_births
+          childcause_ch10_agegroup_days0_27_per_1000_births: prematurity_deaths_in_newborn_per_1000_births
+          childcause_ch12_agegroup_days0_27_per_1000_births: sepsis_deaths_in_newborn_per_1000_births
+          childcause_ch5_agegroup_days0_27_per_1000_births: tetanus_deaths_in_newborn_per_1000_births
+          # Children 1-59 months deaths
+          childcause_ch3_agegroup_months1_59_per_1000_births: diarrhoeal_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch2_agegroup_months1_59_per_1000_births: hiv_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch17_agegroup_months1_59_per_1000_births: injury_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch8_agegroup_months1_59_per_1000_births: malaria_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch6_agegroup_months1_59_per_1000_births: measles_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch7_agegroup_months1_59_per_1000_births: meningitis_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch16_agegroup_months1_59_per_1000_births: ncd_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch13_agegroup_months1_59_per_1000_births: other_infections_deaths_in_children_1_59_months_per_1000_births
+          childcause_ch9_agegroup_months1_59_per_1000_births: pneumonia_deaths_in_children_1_59_months_per_1000_births
+      result: mort-rate-datapoints-final
