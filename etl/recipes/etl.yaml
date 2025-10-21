@@ -16,6 +16,8 @@ include:
   - total_deaths_indicators.yaml
   - death_rate_indicators.yaml
   - suicide_indicators.yaml
+  - homicide_indicators.yaml
+  - road_traffic_indicators.yaml
   - geo_convention_only.yaml
 
 ingredients:
@@ -45,6 +47,8 @@ cooking:
         - mort-datapoints-final
         - mort-rate-datapoints-final
         - suicide-datapoints-final
+        - homicide-datapoints-final
+        - traffic-datapoints-final
         - misc-datapoints-final
       result: all-datapoints-merged
 

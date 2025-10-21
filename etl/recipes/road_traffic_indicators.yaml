@@ -1,0 +1,75 @@
+# Recipe to create road traffic death indicators by sex from WHO GHO data
+info:
+  id: road_traffic_indicators
+  base:
+    - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+  - id: traffic-rate-datapoints
+    dataset: *d1
+    key: "country, year, sex"
+    value:
+      - sa_0000001452
+
+  - id: traffic-num-datapoints
+    dataset: *d1
+    key: "country, year"
+    value:
+      - rs_196
+
+cooking:
+  datapoints:
+    # Process traffic death rates (age-standardized, by sex)
+    - procedure: translate_header
+      ingredients:
+        - traffic-rate-datapoints
+      options:
+        dictionary:
+          country: geo
+          year: time
+      result: traffic-rate-headers-translated
+    - procedure: flatten
+      ingredients:
+        - traffic-rate-headers-translated
+      options:
+        flatten_dimensions:
+          - sex
+        dictionary:
+          sa_0000001452: "traffic_deaths_{sex}_per_100000_people"
+      result: traffic-rate-flattened
+    - procedure: filter
+      ingredients:
+        - traffic-rate-flattened
+      options:
+        item:
+          - traffic_deaths_sex_btsx_per_100000_people
+          - traffic_deaths_sex_mle_per_100000_people
+          - traffic_deaths_sex_fmle_per_100000_people
+      result: traffic-rate-filtered
+    - procedure: translate_header
+      ingredients:
+        - traffic-rate-filtered
+      options:
+        dictionary:
+          traffic_deaths_sex_btsx_per_100000_people: traffic_deaths_per_100000_people
+          traffic_deaths_sex_mle_per_100000_people: traffic_deaths_men_per_100000_people
+          traffic_deaths_sex_fmle_per_100000_people: traffic_deaths_women_per_100000_people
+      result: traffic-rate-final
+
+    # Process traffic total deaths
+    - procedure: translate_header
+      ingredients:
+        - traffic-num-datapoints
+      options:
+        dictionary:
+          country: geo
+          year: time
+          rs_196: traffic_total_deaths
+      result: traffic-num-final
+
+    # Merge rate and total death indicators
+    - procedure: merge
+      ingredients:
+        - traffic-rate-final
+        - traffic-num-final
+      result: traffic-datapoints-final

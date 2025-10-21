@@ -1,0 +1,97 @@
+# Recipe to create homicide indicators by sex from WHO GHO data
+info:
+  id: homicide_indicators
+  base:
+    - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+  - id: homicide-rate-datapoints
+    dataset: *d1
+    key: "country, year, sex"
+    value:
+      - violence_homiciderate
+
+  - id: homicide-num-datapoints
+    dataset: *d1
+    key: "country, year, sex"
+    value:
+      - violence_homicidenum
+
+cooking:
+  datapoints:
+    # Process homicide rates
+    - procedure: translate_header
+      ingredients:
+        - homicide-rate-datapoints
+      options:
+        dictionary:
+          country: geo
+          year: time
+      result: homicide-rate-headers-translated
+    - procedure: flatten
+      ingredients:
+        - homicide-rate-headers-translated
+      options:
+        flatten_dimensions:
+          - sex
+        dictionary:
+          violence_homiciderate: "murdered_{sex}_per_100000_people"
+      result: homicide-rate-flattened
+    - procedure: filter
+      ingredients:
+        - homicide-rate-flattened
+      options:
+        item:
+          - murdered_sex_btsx_per_100000_people
+          - murdered_sex_mle_per_100000_people
+          - murdered_sex_fmle_per_100000_people
+      result: homicide-rate-filtered
+    - procedure: translate_header
+      ingredients:
+        - homicide-rate-filtered
+      options:
+        dictionary:
+          murdered_sex_btsx_per_100000_people: murder_per_100000_people
+          murdered_sex_mle_per_100000_people: murdered_men_per_100000_people
+          murdered_sex_fmle_per_100000_people: murdered_women_per_100000_people
+      result: homicide-rate-final
+
+    # Process homicide total deaths
+    - procedure: translate_header
+      ingredients:
+        - homicide-num-datapoints
+      options:
+        dictionary:
+          country: geo
+          year: time
+      result: homicide-num-headers-translated
+    - procedure: flatten
+      ingredients:
+        - homicide-num-headers-translated
+      options:
+        flatten_dimensions:
+          - sex
+        dictionary:
+          violence_homicidenum: "murder_{sex}_total_deaths"
+      result: homicide-num-flattened
+    - procedure: filter
+      ingredients:
+        - homicide-num-flattened
+      options:
+        item:
+          - murder_sex_btsx_total_deaths
+      result: homicide-num-filtered
+    - procedure: translate_header
+      ingredients:
+        - homicide-num-filtered
+      options:
+        dictionary:
+          murder_sex_btsx_total_deaths: murder_total_deaths
+      result: homicide-num-final
+
+    # Merge rate and total death indicators
+    - procedure: merge
+      ingredients:
+        - homicide-rate-final
+        - homicide-num-final
+      result: homicide-datapoints-final
