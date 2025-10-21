@@ -46,10 +46,10 @@ The following indicators are requested but could not be found in the source data
 3. **pertussis_deaths_in_children_1_59_months_per_1000_births** - No pertussis entity found in childcause dimension. Pertussis might be included in another category or requires a different source indicator.
 4. **other_deaths_in_newborn_per_1000_births** - `childcause_ch19` (Other Group 1 and Other noncommunicable) exists in mort_100 (total deaths) but does NOT exist in mort_200 (death rates) for the newborn age group. This is a data availability issue in the source dataset.
 
-**From geo_convention_only (health expenditure indicators):**
+**From health expenditure indicators:**
 
-1. **ghed_che_pc_ppp_sha2011** - Current health expenditure (CHE) per capita in PPP - Not available in source dataset. Only the US$ version (ghed_che_pc_us_sha2011) exists.
-2. **ghed_gghe_d_pc_ppp_sha2011** - Domestic general government health expenditure (GGHE-D) per capita in PPP - Not available in source dataset. Only the US$ version (ghed_gghe_d_pc_us_sha2011) exists.
+1. **total_health_spending_per_person_international_dollar** - Current health expenditure (CHE) per capita in PPP - Not available in source dataset. Only the US$ version (ghed_che_pc_us_sha2011) exists.
+2. **government_health_spending_per_person_international_dollar** - Domestic general government health expenditure (GGHE-D) per capita in PPP - Not available in source dataset. Only the US$ version (ghed_gghe_d_pc_us_sha2011) exists.
 
 ## Specific information about this indicator
 

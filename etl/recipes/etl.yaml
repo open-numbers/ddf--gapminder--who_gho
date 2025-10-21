@@ -43,7 +43,7 @@ cooking:
               - cholesterol-datapoints-final
               - mort-datapoints-final
               - mort-rate-datapoints-final
-              - who-indicators-misc-headers-translated
+              - misc-datapoints-final
           result: all-datapoints-merged
 
         # Translate WHO country entities to open_numbers geo
