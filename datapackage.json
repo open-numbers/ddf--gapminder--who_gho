@@ -1,19 +1,14 @@
 {
     "name": "ddf--gapminder--who_gho",
-    "language": {
-        "id": "en"
-    },
     "title": "ddf--gapminder--who_gho",
     "description": "",
     "author": "",
     "license": "",
-    "base": [
-        "open-numbers/ddf--open_numbers",
-        "open-numbers/ddf--who--gho"
-    ],
-    "id": "ddf--gapminder--who_gho",
+    "language": {
+        "id": "en"
+    },
+    "created": "2025-10-22T01:33:16.476Z",
     "translations": [],
-    "created": "2025-10-21T07:42:21.555292+00:00",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -32,6 +27,23 @@
                 ],
                 "primaryKey": [
                     "concept"
+                ]
+            }
+        },
+        {
+            "name": "ddf--entities--geo",
+            "path": "ddf--entities--geo.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "name"
+                    }
+                ],
+                "primaryKey": [
+                    "geo"
                 ]
             }
         },
@@ -1023,6 +1035,69 @@
             }
         },
         {
+            "name": "ddf--datapoints--smoking_adults_percent_of_population_over_age_15--by--geo--time",
+            "path": "ddf--datapoints--smoking_adults_percent_of_population_over_age_15--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "smoking_adults_percent_of_population_over_age_15"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--smoking_men_percent_of_men_over_age_15--by--geo--time",
+            "path": "ddf--datapoints--smoking_men_percent_of_men_over_age_15--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "smoking_men_percent_of_men_over_age_15"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--smoking_women_percent_of_women_over_age_15--by--geo--time",
+            "path": "ddf--datapoints--smoking_women_percent_of_women_over_age_15--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "smoking_women_percent_of_women_over_age_15"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
             "name": "ddf--datapoints--suicide_age_15_19_per_100000_people--by--geo--time",
             "path": "ddf--datapoints--suicide_age_15_19_per_100000_people--by--geo--time.csv",
             "schema": {
@@ -1481,23 +1556,6 @@
                 "primaryKey": [
                     "geo",
                     "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--entities--geo",
-            "path": "ddf--entities--geo.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "name"
-                    }
-                ],
-                "primaryKey": [
-                    "geo"
                 ]
             }
         }
@@ -2003,6 +2061,36 @@
                 "value": "sepsis_deaths_in_newborn_total_deaths",
                 "resources": [
                     "ddf--datapoints--sepsis_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "smoking_adults_percent_of_population_over_age_15",
+                "resources": [
+                    "ddf--datapoints--smoking_adults_percent_of_population_over_age_15--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "smoking_men_percent_of_men_over_age_15",
+                "resources": [
+                    "ddf--datapoints--smoking_men_percent_of_men_over_age_15--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "smoking_women_percent_of_women_over_age_15",
+                "resources": [
+                    "ddf--datapoints--smoking_women_percent_of_women_over_age_15--by--geo--time"
                 ]
             },
             {

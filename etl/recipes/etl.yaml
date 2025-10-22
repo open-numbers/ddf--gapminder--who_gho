@@ -18,6 +18,7 @@ include:
   - suicide_indicators.yaml
   - homicide_indicators.yaml
   - road_traffic_indicators.yaml
+  - smoking_indicators.yaml
   - geo_convention_only.yaml
 
 ingredients:
@@ -49,6 +50,7 @@ cooking:
         - suicide-datapoints-final
         - homicide-datapoints-final
         - traffic-datapoints-final
+        - smoking-datapoints-final
         - misc-datapoints-final
       result: all-datapoints-merged
 

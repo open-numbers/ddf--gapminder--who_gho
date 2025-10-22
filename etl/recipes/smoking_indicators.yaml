@@ -1,0 +1,50 @@
+# Recipe to create smoking indicators by sex from WHO GHO data
+info:
+  id: smoking_indicators
+  base:
+    - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+  - id: smoking-datapoints
+    dataset: *d1
+    key: "country, year, sex"
+    value:
+      - m_est_tob_curr_std
+
+cooking:
+  datapoints:
+    - procedure: translate_header
+      ingredients:
+        - smoking-datapoints
+      options:
+        dictionary:
+          country: geo
+          year: time
+      result: smoking-datapoints-headers-translated
+    - procedure: flatten
+      ingredients:
+        - smoking-datapoints-headers-translated
+      options:
+        flatten_dimensions:
+          - sex
+        dictionary:
+          m_est_tob_curr_std: "smoking_{sex}_percent"
+      result: smoking-datapoints-flattened
+    - procedure: filter
+      ingredients:
+        - smoking-datapoints-flattened
+      options:
+        item:
+          - smoking_sex_btsx_percent
+          - smoking_sex_mle_percent
+          - smoking_sex_fmle_percent
+      result: smoking-datapoints-filtered
+    - procedure: translate_header
+      ingredients:
+        - smoking-datapoints-filtered
+      options:
+        dictionary:
+          smoking_sex_btsx_percent: smoking_adults_percent_of_population_over_age_15
+          smoking_sex_mle_percent: smoking_men_percent_of_men_over_age_15
+          smoking_sex_fmle_percent: smoking_women_percent_of_women_over_age_15
+      result: smoking-datapoints-final
