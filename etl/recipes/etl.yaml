@@ -15,6 +15,7 @@ include:
   - cholesterol_fat_indicators.yaml
   - total_deaths_indicators.yaml
   - death_rate_indicators.yaml
+  - all_causes_mortality_indicators.yaml
   - suicide_indicators.yaml
   - homicide_indicators.yaml
   - road_traffic_indicators.yaml
@@ -47,6 +48,7 @@ cooking:
         - cholesterol-datapoints-final
         - mort-datapoints-final
         - mort-rate-datapoints-final
+        - all-causes-mortality-datapoints-final
         - suicide-datapoints-final
         - homicide-datapoints-final
         - traffic-datapoints-final

@@ -7,7 +7,7 @@
     "language": {
         "id": "en"
     },
-    "created": "2025-10-22T01:33:16.476Z",
+    "created": "2025-11-23T07:04:36.151Z",
     "translations": [],
     "resources": [
         {
@@ -44,6 +44,90 @@
                 ],
                 "primaryKey": [
                     "geo"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--all_causes_deaths_in_children_1_59_months_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--all_causes_deaths_in_children_1_59_months_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "all_causes_deaths_in_children_1_59_months_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--all_causes_deaths_in_children_1_59_months_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--all_causes_deaths_in_children_1_59_months_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "all_causes_deaths_in_children_1_59_months_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--all_causes_deaths_in_newborn_per_1000_births--by--geo--time",
+            "path": "ddf--datapoints--all_causes_deaths_in_newborn_per_1000_births--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "all_causes_deaths_in_newborn_per_1000_births"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--all_causes_deaths_in_newborn_total_deaths--by--geo--time",
+            "path": "ddf--datapoints--all_causes_deaths_in_newborn_total_deaths--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "all_causes_deaths_in_newborn_total_deaths"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
                 ]
             }
         },
@@ -1593,6 +1677,46 @@
             }
         ],
         "datapoints": [
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "all_causes_deaths_in_children_1_59_months_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--all_causes_deaths_in_children_1_59_months_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "all_causes_deaths_in_children_1_59_months_total_deaths",
+                "resources": [
+                    "ddf--datapoints--all_causes_deaths_in_children_1_59_months_total_deaths--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "all_causes_deaths_in_newborn_per_1000_births",
+                "resources": [
+                    "ddf--datapoints--all_causes_deaths_in_newborn_per_1000_births--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "all_causes_deaths_in_newborn_total_deaths",
+                "resources": [
+                    "ddf--datapoints--all_causes_deaths_in_newborn_total_deaths--by--geo--time"
+                ]
+            },
             {
                 "primaryKey": [
                     "geo",

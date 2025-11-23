@@ -1,0 +1,199 @@
+# Recipe to create all causes mortality indicators
+# - For neonatal (0-27 days): use WHO's pre-calculated indicators (whosis_000003, cm_03)
+# - For children 1-59 months: calculate by subtracting neonatal from under-5
+info:
+  id: all_causes_mortality_indicators
+  base:
+    - &d1 open-numbers/ddf--who--gho
+
+ingredients:
+  # Neonatal mortality rate (WHO pre-calculated)
+  - id: neonatal-mortality-rate
+    dataset: *d1
+    key: "country, year, agegroup, sex"
+    value:
+      - whosis_000003
+    filter:
+      sex: sex_btsx
+      agegroup: agegroup_days0_27
+
+  # Neonatal deaths count (WHO pre-calculated)
+  - id: neonatal-deaths-count
+    dataset: *d1
+    key: "country, year, agegroup, sex"
+    value:
+      - cm_03
+    filter:
+      sex: sex_btsx
+      agegroup: agegroup_days0_27
+
+  # Under-5 deaths count (WHO pre-calculated)
+  - id: under5-deaths-count
+    dataset: *d1
+    key: "country, year, agegroup, sex, wealthquintile"
+    value:
+      - cm_01
+    filter:
+      sex: sex_btsx
+      agegroup: agegroup_yearsunder5
+      wealthquintile: wealthquintile_totl
+
+  # Under-5 mortality rate (WHO pre-calculated)
+  - id: under5-mortality-rate
+    dataset: *d1
+    key: "country, year, agegroup, sex, wealthquintile"
+    value:
+      - mdg_0000000007
+    filter:
+      sex: sex_btsx
+      agegroup: agegroup_yearsunder5
+      wealthquintile: wealthquintile_totl
+
+cooking:
+  datapoints:
+    # Process neonatal mortality rate
+    - procedure: translate_header
+      ingredients:
+        - neonatal-mortality-rate
+      options:
+        dictionary:
+          country: geo
+          year: time
+          whosis_000003: all_causes_deaths_in_newborn_per_1000_births
+      result: neonatal-rate-headers-translated
+
+    - procedure: flatten
+      ingredients:
+        - neonatal-rate-headers-translated
+      options:
+        flatten_dimensions:
+          - agegroup
+          - sex
+        dictionary:
+          all_causes_deaths_in_newborn_per_1000_births: all_causes_deaths_in_newborn_per_1000_births
+      result: neonatal-rate-final
+
+    # Process neonatal deaths count
+    - procedure: translate_header
+      ingredients:
+        - neonatal-deaths-count
+      options:
+        dictionary:
+          country: geo
+          year: time
+          cm_03: all_causes_deaths_in_newborn_total_deaths
+      result: neonatal-count-headers-translated
+
+    - procedure: flatten
+      ingredients:
+        - neonatal-count-headers-translated
+      options:
+        flatten_dimensions:
+          - agegroup
+          - sex
+        dictionary:
+          all_causes_deaths_in_newborn_total_deaths: all_causes_deaths_in_newborn_total_deaths
+      result: neonatal-count-final
+
+    # Process under-5 deaths count
+    - procedure: translate_header
+      ingredients:
+        - under5-deaths-count
+      options:
+        dictionary:
+          country: geo
+          year: time
+          cm_01: under5_deaths
+      result: under5-count-headers-translated
+
+    - procedure: flatten
+      ingredients:
+        - under5-count-headers-translated
+      options:
+        flatten_dimensions:
+          - agegroup
+          - sex
+          - wealthquintile
+        dictionary:
+          under5_deaths: under5_deaths
+      result: under5-count-flattened
+
+    # Process under-5 mortality rate
+    - procedure: translate_header
+      ingredients:
+        - under5-mortality-rate
+      options:
+        dictionary:
+          country: geo
+          year: time
+          mdg_0000000007: under5_rate
+      result: under5-rate-headers-translated
+
+    - procedure: flatten
+      ingredients:
+        - under5-rate-headers-translated
+      options:
+        flatten_dimensions:
+          - agegroup
+          - sex
+          - wealthquintile
+        dictionary:
+          under5_rate: under5_rate
+      result: under5-rate-flattened
+
+    # Calculate children 1-59 months deaths by subtraction (Under-5 - Neonatal)
+    - procedure: merge
+      ingredients:
+        - under5-count-flattened
+        - neonatal-count-final
+      result: merged-for-children-count-calc
+
+    - procedure: run_op
+      ingredients:
+        - merged-for-children-count-calc
+      options:
+        op:
+          all_causes_deaths_in_children_1_59_months_total_deaths: "under5_deaths - all_causes_deaths_in_newborn_total_deaths"
+      result: children-count-calculated
+
+    # Calculate children 1-59 months rate by subtraction (Under-5 - Neonatal)
+    - procedure: merge
+      ingredients:
+        - under5-rate-flattened
+        - neonatal-rate-final
+      result: merged-for-children-rate-calc
+
+    - procedure: run_op
+      ingredients:
+        - merged-for-children-rate-calc
+      options:
+        op:
+          all_causes_deaths_in_children_1_59_months_per_1000_births: "under5_rate - all_causes_deaths_in_newborn_per_1000_births"
+      result: children-rate-calculated
+
+    # Filter to keep only the final children 1-59 rate indicator (drop under5_rate)
+    - procedure: filter
+      ingredients:
+        - children-rate-calculated
+      options:
+        item:
+          - all_causes_deaths_in_children_1_59_months_per_1000_births
+      result: children-rate-final
+
+    # Filter to keep only the final children 1-59 count indicator (drop under5_deaths)
+    - procedure: filter
+      ingredients:
+        - children-count-calculated
+      options:
+        item:
+          - all_causes_deaths_in_children_1_59_months_total_deaths
+      result: children-count-final
+
+    # Merge all indicators
+    - procedure: merge
+      ingredients:
+        - neonatal-rate-final
+        - neonatal-count-final
+        - children-count-final
+        - children-rate-final
+      result: all-causes-mortality-datapoints-final
