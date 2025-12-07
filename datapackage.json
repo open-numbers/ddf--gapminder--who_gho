@@ -7,7 +7,7 @@
     "language": {
         "id": "en"
     },
-    "created": "2025-11-23T07:04:36.151Z",
+    "created": "2025-12-07T03:31:34.456Z",
     "translations": [],
     "resources": [
         {
@@ -669,90 +669,6 @@
                     },
                     {
                         "name": "meningitis_deaths_in_children_1_59_months_total_deaths"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--murder_per_100000_people--by--geo--time",
-            "path": "ddf--datapoints--murder_per_100000_people--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "murder_per_100000_people"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--murder_total_deaths--by--geo--time",
-            "path": "ddf--datapoints--murder_total_deaths--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "murder_total_deaths"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--murdered_men_per_100000_people--by--geo--time",
-            "path": "ddf--datapoints--murdered_men_per_100000_people--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "murdered_men_per_100000_people"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--murdered_women_per_100000_people--by--geo--time",
-            "path": "ddf--datapoints--murdered_women_per_100000_people--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "murdered_women_per_100000_people"
                     }
                 ],
                 "primaryKey": [
@@ -1558,90 +1474,6 @@
                     "time"
                 ]
             }
-        },
-        {
-            "name": "ddf--datapoints--traffic_deaths_men_per_100000_people--by--geo--time",
-            "path": "ddf--datapoints--traffic_deaths_men_per_100000_people--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "traffic_deaths_men_per_100000_people"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--traffic_deaths_per_100000_people--by--geo--time",
-            "path": "ddf--datapoints--traffic_deaths_per_100000_people--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "traffic_deaths_per_100000_people"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--traffic_deaths_women_per_100000_people--by--geo--time",
-            "path": "ddf--datapoints--traffic_deaths_women_per_100000_people--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "traffic_deaths_women_per_100000_people"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
-        },
-        {
-            "name": "ddf--datapoints--traffic_total_deaths--by--geo--time",
-            "path": "ddf--datapoints--traffic_total_deaths--by--geo--time.csv",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "geo"
-                    },
-                    {
-                        "name": "time"
-                    },
-                    {
-                        "name": "traffic_total_deaths"
-                    }
-                ],
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ]
-            }
         }
     ],
     "ddfSchema": {
@@ -1975,46 +1807,6 @@
                 "value": "meningitis_deaths_in_children_1_59_months_total_deaths",
                 "resources": [
                     "ddf--datapoints--meningitis_deaths_in_children_1_59_months_total_deaths--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "murder_per_100000_people",
-                "resources": [
-                    "ddf--datapoints--murder_per_100000_people--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "murder_total_deaths",
-                "resources": [
-                    "ddf--datapoints--murder_total_deaths--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "murdered_men_per_100000_people",
-                "resources": [
-                    "ddf--datapoints--murdered_men_per_100000_people--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "murdered_women_per_100000_people",
-                "resources": [
-                    "ddf--datapoints--murdered_women_per_100000_people--by--geo--time"
                 ]
             },
             {
@@ -2395,46 +2187,6 @@
                 "value": "total_health_spending_percent_of_gdp",
                 "resources": [
                     "ddf--datapoints--total_health_spending_percent_of_gdp--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "traffic_deaths_men_per_100000_people",
-                "resources": [
-                    "ddf--datapoints--traffic_deaths_men_per_100000_people--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "traffic_deaths_per_100000_people",
-                "resources": [
-                    "ddf--datapoints--traffic_deaths_per_100000_people--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "traffic_deaths_women_per_100000_people",
-                "resources": [
-                    "ddf--datapoints--traffic_deaths_women_per_100000_people--by--geo--time"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "geo",
-                    "time"
-                ],
-                "value": "traffic_total_deaths",
-                "resources": [
-                    "ddf--datapoints--traffic_total_deaths--by--geo--time"
                 ]
             }
         ],
